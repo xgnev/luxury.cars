@@ -1,0 +1,15 @@
+:root {
+    --fw-light: 300;
+    --fw-regular: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    --limited: 1300px;
+    --ff-first: "Roboto", sans-serif;
+    --ff-second: "Montserrat", sans-serif;
+
+    --surface-primary: #121212;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A5A5A5;
+}

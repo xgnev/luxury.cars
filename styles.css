@@ -1,0 +1,372 @@
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.layout {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: 42px;
+    font-family: var(--ff-second);
+}
+.main {
+    flex: 1 1 auto;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--limited);
+    margin: 0 auto;
+}
+
+.nav__list {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.nav__link {
+    display: block;
+    padding: 10px;
+    font-family: var(--ff-second);
+    font-size: 18px;
+    color: var(--text-secondary);
+    transition: .3s;
+}
+
+.nav__link:hover {
+    color: var(--text-primary);
+}
+
+.header {
+    margin: 40px 0;
+    padding: 0 15px;
+}
+.header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: var(--fw-semibold);
+    font-family: var(--ff-second);
+}
+
+.menu-icon {
+    display: none;
+}
+
+@media (max-width: 768.98px) {
+    .menu-icon {
+        display: block;
+        width: 32px;
+        height: 18px;
+        position: relative;
+        z-index: 101;
+        background-color: transparent;
+    }
+    .menu-icon::before,
+    .menu-icon::after,
+    .menu-icon span {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #fff;
+    }
+    .menu-icon span {
+        top: 50%;
+        transform: translateY(-50%) scale(1);
+    }
+    .menu-icon::before,
+    .menu-icon::after {
+        content: "";
+        transition: .3s;
+    }
+    .menu-icon::before {
+        top: 0;
+    }
+    .menu-icon::after {
+        bottom: 0;
+    }
+    .menu-icon.menu-icon_open span {
+        transform: translateY(-50%) scale(0);
+    }
+    .menu-icon.menu-icon_open::before {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+    }
+    .menu-icon.menu-icon_open::after {
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+    }
+    .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(-100%);
+        z-index: 100;
+    }
+    .menu.menu_show {
+        transform: translateY(0);
+    }
+    .nav__list {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.hero-section {
+    padding: 0 15px;
+}
+.hero-section-card {
+    height: 80vh;
+    width: 100%;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+}
+
+.hero-section-card__bg {
+    width: 100%;
+    height: 100%;
+    background: url("../images/hero-section-card-bg.jpg") center center/cover no-repeat;
+    position: relative;
+    transition: .3s;
+}
+.hero-section-card:hover .hero-section-card__bg {
+    transform: scale(1.1);
+}
+
+.hero-section-card__bg::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .4);
+}
+.hero-section-card__title {
+    font-size: 64px;
+    font-weight: var(--fw-medium);
+    font-family: var(--ff-second);
+    width: 100%;
+    max-width: 520px;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 576.98px) {
+    .hero-section-card__title {
+        font-size: 42px;
+    }
+}
+
+.hero-section-card__content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 30px;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+
+.hero-section-card-statistics {
+    display: flex;
+    gap: 50px;
+}
+
+.hero-section-card-statistics-col {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    color: var(--text-secondary);
+}
+
+.hero-section-card-statistics-col__value {
+    font-size: 24px;
+    font-weight: var(--fw-medium);
+    font-family: var(--ff-second);
+}
+
+.hero-section-card-statistics-col__title {
+    font-size: 16px;
+    font-weight: var(--fw-medium);
+}
+
+
+.popular-cars-section__body {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.car-card-img {
+    width: 100%;
+    height: 100%;
+    height: 286px;
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.popular-cars-section__car-card {
+    flex: 1 1 calc(33.333% - 30px);
+}
+
+.car-card-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.car-card-img__secondary {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    left: 100%;
+    transition: .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: -1;
+}
+
+.car-card-img__primary {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    transition: .5s;
+    z-index: -1;
+}
+
+.car-card__body > div{
+    padding: 0 15px;
+}
+
+.car-card__name {
+    font-size: 28px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.car-characteristics {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 26px;
+}
+
+.car-characteristics__item {
+    font-size: 16px;
+    color: var(--text-secondary);
+}
+
+.car-card:hover .car-card-img__secondary {
+    left: 0;
+    opacity: 1;
+    visibility: visible;
+}
+
+.car-card:hover .car-card-img__primary {
+    left: -100%;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.popular-cars-section__title {
+    margin-bottom: 40px;
+}
+
+.popular-cars-section {
+    padding: 40px 15px;
+}
+
+@media (max-width: 1300px) {
+    .popular-cars-section__car-card {
+        flex: 1 1 calc(50% - 30px);
+    }
+}
+
+@media (max-width: 976.98px) {
+    .popular-cars-section__car-card {
+        flex: 1 1 auto;
+    }
+    .car-card-img {
+        margin-bottom: 0;
+    }
+    .car-card__body {
+        display: grid;
+        grid-template-rows: 0fr;
+        overflow: hidden;
+        opacity: 0;
+        transition: grid-template-rows .3s;
+    }
+    .car-card__body > div{
+        min-height: 0;
+    }
+    .car-card.active .car-card__body {
+        grid-template-rows: 1fr;
+        opacity: 1;
+    }
+    .car-card.active .car-card-img {
+        margin-bottom: 20px;
+    }
+    .popular-cars-section__body {
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+    .car-card-img__secondary {
+        top: 100% !important;
+        bottom: auto !important;
+        left: 0 !important; 
+    }
+    .car-card-img__primary {
+        top: 0 !important;
+        bottom: auto !important;
+        left: 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .car-card.active .car-card-img__secondary {
+        top: 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    .car-card.active .car-card-img__primary {
+        top: -100% !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+}
+
+@media (max-width: 576.98px) {
+    .car-card__name {
+        font-size: 24px;
+    }
+    .car-card__body > div {
+        padding: 0;
+    }
+    
+    .car-characteristics {
+        gap: 10px;
+    }
+    .car-characteristics__item {
+        font-size: 14px;
+    }
+}
